@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>StephiPlaceImmo</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/signin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <!--JavaScript-->
+</head>
+<body>
+<main>
+    <div class="main">
+        <div class="main_left_part">
+            <h1>Connecte toi !</h1>
+            <p>Connecte toi pour retrouver tes favoris et bénéficier de toutes les fonctionnalitées du site.</p>
+        </div>
+        <div class="main_right_part">
+            <div class="form_signin">
+                <div class="form_logo">
+                    <a href="../index.html">
+                        <img src="../images/logo.png" alt="logo stephiplace">
+                    </a>
+                </div>
+                <form method="post" action="../php/signin.php">
+                    <div class="form_pseudo">
+                        <label>Pseudo : </label>
+                        <input type="text" placeholder="Pseudo">
+                    </div>
+                    <div class="form_password">
+                        <label>Mot de passe : </label>
+                        <input type="password" placeholder="Mot de passe">
+                    </div>
+
+                    <div class="form_submit">
+                        <button type="submit">Se connecter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>StephiPlaceImmo</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/acceuil.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <!--JavaScript-->
+    <script src="https://kit.fontawesome.com/cc0c487cec.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <div class="header">
+        <div class="header_left">
+            <div class="header_left_logo">
+                <a href="../index.html">
+                    <img src="images/logo.png" alt="logo stephiplace">
+                </a>
+            </div>
+        </div>
+        <div class="header_right">
+            <div class="header_right_connected">
+
+            </div>
+            <div class="header_right_not_connected">
+                <div class="header_right_signin">
+                    <a href="pages/signin.html" class="delLinkStyle">Se connecter</a>
+                </div>
+                <div class="header_right_signup">
+                    <a href="pages/signup.html" class="delLinkStyle">Créer un compte</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="main">
+        <div class="main_background">
+            <div class="main_form_fastresearch">
+                <h1>TROUVEZ LA MAISON DE VOS REVES</h1>
+                <form class="form_fastresearhc" method="post" action="php/fast_research.php">
+                    <div class="main_form_col1">
+                        <label>Ville : </label>
+                        <input type="text" placeholder="Paris">
+                    </div>
+
+                    <div class="main_form_col2">
+                        <label>Type de bien : </label>
+                        <select>
+                            <option>Maison</option>
+                            <option>Appartement</option>
+                        </select>
+
+                        <label>Nombre de pièces : </label>
+                        <input type="number" placeholder="2" min="0">
+                    </div>
+
+                    <div class="main_form_col3">
+                        <label>Prix max (€): </label>
+                        <input type="number" placeholder="100 000" min="0">
+                    </div>
+                    <div class="main_form_submit">
+                        <button type="submit">RECHERCHER !</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer">
+
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>StephiPlaceImmo</title>
+    <!--CSS-->
+    {% block stylesheet %}{% endblock %}
+    <!--JavaScript-->
+    <script src="https://kit.fontawesome.com/cc0c487cec.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <div class="header">
+        <div class="header_left">
+            <div class="header_left_logo">
+                <a href="index.php?p=acceuil">
+                    <img src="images/logo.png" alt="logo stephiplace">
+                </a>
+            </div>
+        </div>
+        <div class="header_right">
+            <div class="header_right_connected">
+
+            </div>
+            <div class="header_right_not_connected">
+                <div class="header_right_signin">
+                    <a href="index.php?p=signin" class="delLinkStyle">Se connecter</a>
+                </div>
+                <div class="header_right_signup">
+                    <a href="index.php?p=signup" class="delLinkStyle">Créer un compte</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+{% block content %}{% endblock %}
+
+<footer>
+    <div class="footer">
+        <h1>Footer</h1>
+    </div>
+</footer>
+</body>
+</html>

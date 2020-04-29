@@ -1,0 +1,45 @@
+{% extends "layout.twig" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/acceuil.css">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="main">
+        <div class="main_background">
+            <div class="main_form_fastresearch">
+                <h1>TROUVEZ LA MAISON DE VOS REVES</h1>
+                <form class="form_fastresearhc" method="post" action="php/fast_research.php">
+                    <div class="main_form_col1">
+                        <label>Ville : </label>
+                        <input type="text" placeholder="Paris">
+                    </div>
+
+                    <div class="main_form_col2">
+                        <label>Type de bien : </label>
+                        <select>
+                            <option>Maison</option>
+                            <option>Appartement</option>
+                        </select>
+
+                        <label>Nombre de pièces : </label>
+                        <input type="number" placeholder="2" min="0">
+                    </div>
+
+                    <div class="main_form_col3">
+                        <label>Prix max (€): </label>
+                        <input type="number" placeholder="100 000" min="0">
+                    </div>
+                    <div class="main_form_submit">
+                        <button type="submit">RECHERCHER !</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

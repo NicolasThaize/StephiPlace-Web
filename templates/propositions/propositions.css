@@ -1,0 +1,51 @@
+body
+{
+    font-family: 'Quicksand', Arial, sans-serif;
+    display: flex;
+    align-content: space-around;
+}
+
+.main_propositions
+{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.main_proposition
+{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+	border-left: green 4px solid;
+	padding:10px;
+	margin: 10px;
+}
+
+.main_proposition div
+{
+	padding-right: 10px;
+}
+
+.proposition_right_part
+{
+	display: flex;
+	flex-direction: column;
+}
+
+.proposition_title h2
+{
+	font-size: 1.3em;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+
+.main_proposition a 
+{
+    color: #e4004b;
+    text-decoration: underline;
+}

@@ -2,8 +2,10 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>StephiPlaceImmo</title>
+    {% block title %}{% endblock %}
     <!--CSS-->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
     {% block stylesheet %}{% endblock %}
     <!--JavaScript-->
     <script src="https://kit.fontawesome.com/cc0c487cec.js" crossorigin="anonymous"></script>
@@ -19,9 +21,19 @@
             </div>
         </div>
         <div class="header_right">
-            <div class="header_right_connected">
 
+            <!-- SI CONNECTE
+            <div class="header_right_connected">
+                <div class="header_right_add">
+                    <a href="index.php?p=startselling" class="delLinkStyle">Ajouter un bien</a>
+                </div>
+                <div class="header_right_account">
+                    <a href="index.php?p=account" class="delLinkStyle"><i class="far fa-user"></i> Mon compte</a>
+                </div>
             </div>
+            -->
+            
+            <!-- SI NON CONNECTE -->
             <div class="header_right_not_connected">
                 <div class="header_right_signin">
                     <a href="index.php?p=signin" class="delLinkStyle">Se connecter</a>
@@ -29,7 +41,9 @@
                 <div class="header_right_signup">
                     <a href="index.php?p=signup" class="delLinkStyle">Créer un compte</a>
                 </div>
-            </div>
+            </div> 
+            
+
         </div>
     </div>
 </header>
@@ -38,7 +52,16 @@
 
 <footer>
     <div class="footer">
-        <h1>Footer</h1>
+        <div class="footer_up_part">
+            <a href="#" class="delLinkStyle">Contact</a>
+            <div style="font-size: 0.5rem;">
+                <i class="fas fa-circle fa-xs" style="color: gray;"></i>
+              </div>
+            <a href="#" class="delLinkStyle">Mention légales</a>
+        </div>
+        <div class="footer_down_part">
+            <p>© MASSEGLIA, THAIZE.</p>
+        </div>
     </div>
 </footer>
 </body>

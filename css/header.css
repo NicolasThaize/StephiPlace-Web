@@ -41,7 +41,7 @@ body
 .header_right
 {
     display: flex;
-    padding: 20px;
+    padding: 18px 20px;
 }
 
 .header_right_not_connected
@@ -51,7 +51,14 @@ body
     align-items: center;
 }
 
-/* Liens a droite */
+.header_right_connected
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Liens a droite WHILE NOT CONNECTED */
 .header_right_not_connected div
 {
     margin-left: 20px;
@@ -80,7 +87,76 @@ body
     font-size: 18px;
 }
 
-/* END Liens a droite */
+/* END Liens a droite WHILE NOT CONNECTED*/
+
+/* Liens a droite WHILE CONNECTED */
+
+.header_right_connected div
+{
+    margin-left: 20px;
+}
+
+
+.header_right_add
+{
+    background-color: #e4004b;
+    padding: 13px 20px;
+    border-radius: 22px;
+    box-shadow: 0px 0px 3px #858585;
+}
+
+.header_right_account
+{
+    background-color: #e4004b;
+    padding: 13px 20px;
+    border-radius: 22px;
+    box-shadow: 0px 0px 3px #858585;
+}
+
+.header_right_connected a
+{
+    color: white;
+    font-size: 18px;
+}
+
+/* END Liens a droite WHILE CONNECTED */
 
 
 /* END Header Droite */
+
+
+/* FOOTER */
+
+.footer
+{
+    height: 150px;
+    background-color: rgb(33, 33, 33);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.footer_up_part
+{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.footer_up_part a
+{
+    padding: 0px 5px;
+    color: white;
+}
+
+
+.footer div
+{
+    margin: 5px;
+}
+
+/* END FOOTER */

@@ -1,0 +1,156 @@
+.main
+{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Partie haute de la page */
+
+.main_up_part
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.main_up_box
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    background-color: #e4004b;
+    font-size: 1.5em;
+    font-weight: bold;
+    height: 50px;
+    width: 100%;
+    box-shadow: 1px 8px 9px -10px rgba(0,0,0,1);
+}
+
+/* END Partie haute de la page */
+
+/* Partie basse  gauche de la page */
+
+
+.main_down_part
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.main_leftdown_part
+{
+    margin: 20px 10px;
+    padding: 20px 20px;
+    min-width: 47%;
+    border-radius: 20px;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+}
+
+.main_leftdown_part div
+{
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+
+.form_left
+{
+    min-width: 26%;
+    display: flex;
+    align-items: center;
+}
+
+.form_right
+{
+    display: flex;
+    align-items: center;
+}
+
+.form_right input
+{
+    padding: 0 10px;
+    height: 30px;
+    border: 2px solid white;
+}
+
+.form_right a
+{
+    color: #e4004b;
+    text-decoration: underline;
+}
+
+
+/* END Partie basse gauche de la page */
+
+
+
+/* Partie basse droite de la page */
+
+.main_rightdown_part
+{
+    margin: 20px 10px;
+    min-width: 48%;
+}
+
+.rightdown_up_part h2
+{
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+/* END Partie basse droite de la page */
+
+
+
+/* CSS DE LA CARTE DES PROPOSITIONS D'ACHAT */
+
+.main_propositions
+{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.main_proposition
+{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+	border-left: green 4px solid;
+	padding:10px;
+	margin: 10px;
+}
+
+.main_proposition div
+{
+	padding-right: 10px;
+}
+
+.proposition_right_part
+{
+	display: flex;
+	flex-direction: column;
+}
+
+.proposition_title h2
+{
+	font-size: 1.3em;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+
+.main_proposition a 
+{
+    color: #e4004b;
+    text-decoration: underline;
+}
+
+/* END CSS DE LA CARTE DES PROPOSITIONS D'ACHAT */

@@ -1,0 +1,35 @@
+/* FOOTER */
+
+.footer
+{
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(33, 33, 33);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.footer_up_part
+{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.footer_up_part a
+{
+    padding: 0px 5px;
+    color: rgb(33, 33, 33);
+}
+
+
+.footer div
+{
+    margin: 5px;
+}
+
+/* END FOOTER */

@@ -1,0 +1,29 @@
+/* Partie haute (recherche) de la page */
+
+.main
+{
+    padding: 10px 0;
+}
+
+.main_form div
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3px 0;
+}
+
+input
+{
+    margin: 0 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+select
+{
+    margin: 0 10px;
+    border-radius: 5px;
+    border: none;
+}
+/* END Partie haute (recherche) de la page */

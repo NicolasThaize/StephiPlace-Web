@@ -1,0 +1,72 @@
+{% extends "layout.twig" %}
+
+{% block title %}
+    <title>Recherche - StephiPlaceImmo</title>
+{% endblock %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="css/research.css">
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="main">
+        <div class="main_up_part">
+            <div class="main_form">
+                <form action="#" method="POST">
+                    <div class="form_col0">
+                        <div class="form_col1_row1">
+                            <label for="choixtype">Type de bien :</label>
+                            <select name="choixtype" id="type">
+                                <option value="maison">Maison</option>
+                                <option value="appartement">Appartement</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form_col1">
+                        <div class="form_col1_row1">
+                            <label for="ville">Ville :</label>
+                            <input type="text" name="ville" placeholder="Quelle ville ?">
+                        </div>
+                        <div class="form_col1_row2">
+                            <label for="departement">Département :</label>
+                            <input type="number" name="departement" placeholder="Quel departement ?">
+                        </div>
+                    </div>
+                    <div class="form_col2">
+                        <div class="form_col2_row1">
+                            <label for="prixmin">Prix minimum :</label>
+                            <input type="number" name="prixmin" placeholder="Prix mini ?">
+                        </div>
+                        <div class="form_col2_row2">
+                            <label for="prixmax">Prix maximum :</label>
+                            <input type="number" name="prixmax" placeholder="Prix max ?">
+                        </div>
+                    </div>
+                    <div class="form_col3">
+                        <div class="form_col3_row1">
+                            <label for="superficie">Superficie min :</label>
+                            <input type="number" name="superficie" placeholder="Une superficie ?">
+                        </div>
+                        <div class="form_col3_row2">
+                            <label for="surface">Surface min :</label>
+                            <input type="number" name="surface" placeholder="Une surface ?">
+                        </div>
+                    </div>
+                    <div class="form_col4">
+                        <div class="form_col4_row1">
+                            <label for="nbrepieces">Nombre de pièces :</label>
+                            <input type="number" name="nbrepieces" placeholder="Un nombre de pièces ?">
+                        </div>
+                        <div class="form_col4_row2">
+                            <button type="submit">Rechercher</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="main_down_part">
+        </div>
+    </div>
+</main>
+{% endblock %}

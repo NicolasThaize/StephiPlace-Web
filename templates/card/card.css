@@ -1,0 +1,57 @@
+body
+{
+    font-family: 'Quicksand', Arial, sans-serif;
+    display: flex;
+    align-content: space-around;
+}
+
+.cards
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.main_card
+{
+    width: 275px;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.card_img
+{
+    height: 200px;
+    background-image: url("../../images/backgroundAcceuil.jpg");
+    background-size: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: #e4004b 2px solid;
+}
+
+.card_down_part div
+{
+    padding: 0px 10px;
+}
+
+.card_title
+{
+    font-weight: bold;
+    font-size: 1.3em;
+    }
+
+.card_city
+{
+    font-style: italic;
+}
+
+.card_price
+{
+    text-align: center;
+    color: #e4004b;
+    font-weight: bold;
+}

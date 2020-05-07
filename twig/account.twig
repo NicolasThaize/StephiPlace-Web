@@ -1,0 +1,136 @@
+{% extends "layout.twig" %}
+
+{% block title %}
+    <title>Mon compte - StephiPlaceImmo</title>
+{% endblock %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="css/account.css">
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="main">
+        <div class="main_up_part">
+            <div class="main_up_box">
+                <h1>MON COMTPE</h1>
+            </div>
+        </div>
+        <div class="main_down_part">
+            <div class="main_leftdown_part">
+                <div class="form_tab_1">
+                    <div class="form_left">
+                        <label for="pseudo">Pseudo :</label>
+                    </div>
+                    <div class="form_right">
+                        <input name="pseudo" type="text" placeholder="Montexte" readonly>
+                        <a href="" class="delLinkStyle">Modifier le Pseudo</a>
+                    </div>
+                </div>
+
+                <div class="form_tab_2">
+                    <div class="form_left">
+                        <label for="nom">Nom :</label>
+                    </div>
+                    <div class="form_right">
+                        <input name="nom" type="text" placeholder="Montexte" readonly>
+                        <a href="" class="delLinkStyle">Modifier le Nom</a>
+                    </div>
+                </div>
+
+                <div class="form_tab_3">
+                    <div class="form_left">
+                        <label for="prenom">Prenom :</label>
+                    </div>
+                    <div class="form_right">
+                        <input name="prenom" type="text" placeholder="Montexte" readonly>
+                        <a href="" class="delLinkStyle">Modifier le Prenom</a>
+                    </div>
+                </div>
+
+                <div class="form_tab_4">
+                    <div class="form_left">
+                        <label for="date">Date de naissance :</label>
+                    </div>
+                    <div class="form_right">
+                        <input name="date" type="text" placeholder="Montexte" readonly>
+                        <a href="" class="delLinkStyle">Modifier la date de naissance</a>
+                    </div>
+                </div>
+
+                <div class="form_tab_5">
+                    <div class="form_left">
+                        <label for="sexe">Sexe :</label>
+                    </div>
+                    <div class="form_right">
+                        <input name="sexe" type="text" placeholder="Montexte" readonly>
+                        <a href="" class="delLinkStyle">Modifier le Sexe</a>
+                    </div>
+                </div>
+
+                <div class="form_tab_6">
+                    <div class="form_left">
+                        <label for="ville">Ville :</label>
+                    </div>
+                    <div class="form_right">
+                        <input name="ville" type="text" placeholder="Montexte" readonly>
+                        <a href="" class="delLinkStyle">Modifier la Ville</a>
+                    </div>
+                </div>
+
+                <div class="form_tab_7">
+                    <div class="form_left">
+                        <label for="departement">Departement :</label>
+                    </div>
+                    <div class="form_right">
+                        <input name="departement" type="text" placeholder="Montexte" readonly>
+                        <a href="" class="delLinkStyle">Modifier le Departement</a>
+                    </div>
+                </div>
+
+                <div class="form_tab_8">
+                    <div class="form_left">
+                        <label for="motdepasse">Mot de passe :</label>
+                    </div>
+                    <div class="form_right">
+                        <input name="motdepasse" type="text" placeholder="* * * * * *" readonly>
+                        <a href="" class="delLinkStyle">Modifier le Mot de passe</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="main_rightdown_part">
+                <div class="rightdown_up_part">
+                    <h2>Mes propositions d'achat</h2>
+                </div>
+                <div class="rightdown_down_part">
+                    <!-- CARTE DES PROPOSITIONS D'ACHAT A INTEGRER EN PHP -->
+                    <div class="main_propositions">
+                        <div class="main_proposition">
+                            <div class="proposition_left_part">
+                                <div class="proposition_status">
+                                    <i class="fas fa-check fa-3x" style="color: green"></i>
+                                    <i class="fas fa-times fa-3x" style="color: red"></i>
+                                </div>
+                            </div>
+                            <div class="proposition_right_part">
+                                <div class="proposition_title">
+                                    <h2>Maison de vacances</h2>
+                                </div>
+                                <div class="proposition_status_explain">
+                                    <p>Proposition acceptée pour 300 000€</p>
+                                </div>
+                                <div class="proposition_link">
+                                    <a href="#">Lien vers l'annonce</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  END CARTE DES PROPOSITIONS D'ACHAT A INTEGRER EN PHP -->
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

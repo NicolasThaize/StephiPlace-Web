@@ -2,12 +2,30 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>StephiPlaceImmo</title>
+    {% block title %}{% endblock %}
     <!--CSS-->
+    <link rel="stylesheet" href="css/noheader.css">
+    <link rel="stylesheet" href="css/reset.css">
     {% block stylesheet %}{% endblock %}
     <!--JavaScript-->
+    <script src="https://kit.fontawesome.com/cc0c487cec.js" crossorigin="anonymous"></script>
 </head>
 <body>
 {% block content %}{% endblock %}
 </body>
+
+<footer>
+    <div class="footer">
+        <div class="footer_up_part">
+            <a href="#" class="delLinkStyle">Contact</a>
+            <div style="font-size: 0.5rem;">
+                <i class="fas fa-circle fa-xs" style="color: gray;"></i>
+              </div>
+            <a href="#" class="delLinkStyle">Mention légales</a>
+        </div>
+        <div class="footer_down_part">
+            <p>© MASSEGLIA, THAIZE.</p>
+        </div>
+    </div>
+</footer>
 </html>

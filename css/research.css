@@ -1,29 +1,115 @@
-/* Partie haute (recherche) de la page */
-
-.main
+/* Partie haute du main */
+/* Première partie du dropdown */
+.dropdown
 {
-    padding: 10px 0;
+    display: block;
 }
 
-.main_form div
+.main_up_form
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.dropper
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.dropper h2
+{
+    padding: 0 30px;
+}
+
+.up_form
+{
+    text-align: center;
+}
+
+/* Bouton 'Rechercher' */
+
+.form_submit
+{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.form_submit button
+{
+    border: none;
+    color: white;
+    background-color: #e4004b;
+    padding: 13px 20px;
+    border-radius: 22px;
+    box-shadow: 0 0 3px #858585;
+}
+
+/* END Bouton 'Rechercher' */
+
+/* END Première partie du dropdown */
+
+/* Partie basse du formulare "dropdown" */
+
+.dropped
 {
     display: flex;
     justify-content: center;
+}
+
+.forms
+{
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    margin: 3px 0;
+    padding: 5px;
 }
 
-input
+.forms div
 {
-    margin: 0 10px;
-    border-radius: 5px;
-    border: none;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
-select
+#form_type
 {
-    margin: 0 10px;
-    border-radius: 5px;
-    border: none;
+    display: none;
 }
-/* END Partie haute (recherche) de la page */
+#form_loca
+{
+    display: none;
+}
+#form_prix
+{
+    display: none;
+}
+#form_taille
+{
+    display: none;
+}
+
+.forms input
+{
+    padding: 0 10px;
+    height: 30px;
+    border: 2px solid white;
+    border-radius: 20px;
+}
+
+.form select
+{
+    margin-right: 20px;
+    font-size: 0.8em;
+    padding: 0 10px;
+    height: 30px;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    appearance: none;
+}
+
+/* END Partie basse du formulare "dropdown" */
+/* END Partie haute du main */

@@ -45,6 +45,7 @@
     padding: 20px 20px;
     min-width: 47%;
     border-radius: 20px;
+    max-height: 425px;
     box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
 }
 
@@ -100,6 +101,17 @@
 {
     font-size: 1.3em;
     font-weight: bold;
+}
+
+.rightdown_upup_part
+{
+    padding-bottom: 10px;
+}
+
+.rightdown_upup_part a
+{
+    color: #e4004b;
+    text-decoration: underline;
 }
 
 /* END Partie basse droite de la page */

@@ -23,12 +23,15 @@ switch($page){
     case 'signin':
         echo $twig->render('signin.twig');
         break;
-    case 'fastresearch':
-        echo $twig->render('fastresearch.twig');
+    case 'research':
+        echo $twig->render('research.twig');
         break;
     case 'account':
         echo $twig->render('account.twig');
         break;
+    case 'goods':
+            echo $twig->render('goods.twig');
+            break;
     default:
         echo '404 Error Not found';
         break;

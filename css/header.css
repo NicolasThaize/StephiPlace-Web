@@ -8,6 +8,11 @@ body
     height: 100%;
 }
 
+main
+{
+    min-height: 501px;
+}
+
 .delLinkStyle
 {
     text-decoration: none;
@@ -70,7 +75,7 @@ body
     background-color: #e4004b;
     padding: 13px 20px;
     border-radius: 22px;
-    box-shadow: 0px 0px 3px #858585;
+    box-shadow: 0 0 3px #858585;
 }
 
 .header_right_signup
@@ -78,7 +83,7 @@ body
     background-color: #e4004b;
     padding: 13px 20px;
     border-radius: 22px;
-    box-shadow: 0px 0px 3px #858585;
+    box-shadow: 0 0 3px #858585;
 }
 
 .header_right_not_connected a
@@ -102,7 +107,7 @@ body
     background-color: #e4004b;
     padding: 13px 20px;
     border-radius: 22px;
-    box-shadow: 0px 0px 3px #858585;
+    box-shadow: 0 0 3px #858585;
 }
 
 .header_right_account
@@ -110,7 +115,7 @@ body
     background-color: #e4004b;
     padding: 13px 20px;
     border-radius: 22px;
-    box-shadow: 0px 0px 3px #858585;
+    box-shadow: 0 0 3px #858585;
 }
 
 .header_right_connected a
@@ -149,7 +154,7 @@ body
 
 .footer_up_part a
 {
-    padding: 0px 5px;
+    padding: 0 5px;
     color: white;
 }
 

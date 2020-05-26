@@ -21,27 +21,29 @@
             </div>
         </div>
         <div class="header_right">
-
-            <!-- SI CONNECTE
-            <div class="header_right_connected">
-                <div class="header_right_add">
-                    <a href="index.php?p=startselling" class="delLinkStyle">Ajouter un bien</a>
+        
+            {% if status %}  <!-- SI CONNECTE -->
+                <div class="header_right_connected">
+                    <div class="header_right_add">
+                        <a href="index.php?p=startselling" class="delLinkStyle">Ajouter un bien</a>
+                    </div>
+                    <div class="header_right_account">
+                        <a href="index.php?p=account" class="delLinkStyle"><i class="far fa-user"></i> Mon compte</a>
+                    </div>
                 </div>
-                <div class="header_right_account">
-                    <a href="index.php?p=account" class="delLinkStyle"><i class="far fa-user"></i> Mon compte</a>
-                </div>
-            </div>
-            -->
             
-            <!-- SI NON CONNECTE -->
-            <div class="header_right_not_connected">
+            {% else %} <!-- SI NON CONNECTE -->
+                <div class="header_right_not_connected">
                 <div class="header_right_signin">
                     <a href="index.php?p=signin" class="delLinkStyle">Se connecter</a>
                 </div>
                 <div class="header_right_signup">
                     <a href="index.php?p=signup" class="delLinkStyle">Créer un compte</a>
                 </div>
-            </div> 
+            </div>
+            {% endif %}
+                        
+             
             
 
         </div>

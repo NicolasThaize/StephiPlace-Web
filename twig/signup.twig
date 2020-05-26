@@ -23,52 +23,49 @@
                         <img src="images/logo.png" alt="logo stephiplace">
                     </a>
                 </div>
-                <form method="post" action="../php/signup.php">
+                <form method="post" action="php/signup.php">
                     <div class="form_pseudo">
                         <label>Pseudo : </label>
-                        <input type="text" placeholder="Pseudo">
+                        <input type="text" placeholder="monPseudo58" name="creaPseudo">
                     </div>
 
                     <div class="form_lastname">
                         <label>Nom : </label>
-                        <input type="text" placeholder="Nom">
+                        <input type="text" placeholder="Jean" name="creaNom">
                     </div>
 
                     <div class="form_firstname">
                         <label>Prenom : </label>
-                        <input type="text" placeholder="Prenom">
+                        <input type="text" placeholder="Dumas" name="creaPrenom">
                     </div>
 
                     <div class="form_birth">
                         <label>Date de naissance : </label>
-                        <input type="date">
+                        <input type="date" name="creaNaissance">
                     </div>
 
-                    <div class="form_gender">
-                        <label>Sexe : </label>
-                        <label>Femme</label>
-                        <input type="radio" name="sexe" value="femme">
-                        <label>Homme</label>
-                        <input type="radio" name="sexe" value="homme">
+                    <div class="form_mail">
+                        <label>Email : </label>
+                        <input type="text" placeholder="nom@email.com" name="creaMail">
                     </div>
 
                     <div class="form_city">
                         <label>Ville : </label>
-                        <input type="text" placeholder="Paris">
+                        <input type="text" placeholder="Paris" name="creaVille">
                     </div>
 
-                    <div class="form_department">
-                        <label>Département : </label>
-                        <input type="text" placeholder="83">
+                    <div class="form_codepostal">
+                        <label>Code Postal : </label>
+                        <input type="text" placeholder="83000" name="creaCodePostal">
                     </div>
 
                     <div class="form_password">
                         <label>Mot de passe : </label>
-                        <input type="password" placeholder="Mot de passe">
+                        <input type="password" placeholder="Mot de passe" name="creaMdp">
                     </div>
 
                     <div class="form_submit">
-                        <button type="submit">Créer mon compte</button>
+                        <button type="submit" name="envoiCrea">Créer mon compte</button>
                     </div>
                 </form>
             </div>

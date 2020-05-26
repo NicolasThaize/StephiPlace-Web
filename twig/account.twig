@@ -10,6 +10,7 @@
 
 {% block content %}
 <main>
+    
     <div class="main">
         <div class="main_up_part">
             <div class="main_up_box">
@@ -23,7 +24,7 @@
                         <label for="pseudo">Pseudo :</label>
                     </div>
                     <div class="form_right">
-                        <input name="pseudo" type="text" placeholder="Montexte" readonly>
+                        <input name="pseudo" type="text" placeholder="{{tabUser['pseudonyme']}}" readonly>
                         <a href="" class="delLinkStyle">Modifier le Pseudo</a>
                     </div>
                 </div>
@@ -33,7 +34,7 @@
                         <label for="nom">Nom :</label>
                     </div>
                     <div class="form_right">
-                        <input name="nom" type="text" placeholder="Montexte" readonly>
+                        <input name="nom" type="text" placeholder="{{tabUser['nom']}}" readonly>
                         <a href="" class="delLinkStyle">Modifier le Nom</a>
                     </div>
                 </div>
@@ -43,7 +44,7 @@
                         <label for="prenom">Prenom :</label>
                     </div>
                     <div class="form_right">
-                        <input name="prenom" type="text" placeholder="Montexte" readonly>
+                        <input name="prenom" type="text" placeholder="{{tabUser['prenom']}}" readonly>
                         <a href="" class="delLinkStyle">Modifier le Prenom</a>
                     </div>
                 </div>
@@ -53,18 +54,18 @@
                         <label for="date">Date de naissance :</label>
                     </div>
                     <div class="form_right">
-                        <input name="date" type="text" placeholder="Montexte" readonly>
+                        <input name="date" type="text" placeholder="{{tabUser['date_naissance']}}" readonly>
                         <a href="" class="delLinkStyle">Modifier la date de naissance</a>
                     </div>
                 </div>
 
                 <div class="form_tab_5">
                     <div class="form_left">
-                        <label for="sexe">Sexe :</label>
+                        <label for="email">Email :</label>
                     </div>
                     <div class="form_right">
-                        <input name="sexe" type="text" placeholder="Montexte" readonly>
-                        <a href="" class="delLinkStyle">Modifier le Sexe</a>
+                        <input name="email" type="text" placeholder="{{tabUser['mail']}}" readonly>
+                        <a href="" class="delLinkStyle">Modifier le mail</a>
                     </div>
                 </div>
 
@@ -73,18 +74,18 @@
                         <label for="ville">Ville :</label>
                     </div>
                     <div class="form_right">
-                        <input name="ville" type="text" placeholder="Montexte" readonly>
+                        <input name="ville" type="text" placeholder="{{tabUser['ville']}}" readonly>
                         <a href="" class="delLinkStyle">Modifier la Ville</a>
                     </div>
                 </div>
 
                 <div class="form_tab_7">
                     <div class="form_left">
-                        <label for="departement">Departement :</label>
+                        <label for="code_postal">Code Postal :</label>
                     </div>
                     <div class="form_right">
-                        <input name="departement" type="text" placeholder="Montexte" readonly>
-                        <a href="" class="delLinkStyle">Modifier le Departement</a>
+                        <input name="code_postal" type="text" placeholder="{{tabUser['code_postal']}}" readonly>
+                        <a href="" class="delLinkStyle">Modifier le Code postal</a>
                     </div>
                 </div>
 
@@ -133,6 +134,7 @@
                 </div>
             </div>
         </div>
+        <a href="php/deconnexion.php" class="delLinkStyle" id='deconnexion'>Se déconnecter</a>
     </div>
 </main>
 

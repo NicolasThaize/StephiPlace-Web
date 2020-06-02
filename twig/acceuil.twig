@@ -6,7 +6,6 @@
 
 {% block stylesheet %}
 <link rel="stylesheet" href="css/acceuil.css">
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -17,27 +16,27 @@
                 <h1>TROUVEZ LA MAISON DE VOS REVES</h1>
                 <form class="form_fastresearhc" method="post" action="php/research.php">
                     <div class="main_form_col1">
-                        <label>Ville : </label>
-                        <input type="text" placeholder="Paris">
+                        <label for="ville">Ville : </label>
+                        <input type="text" placeholder="Paris" id="ville" name="ville">
                     </div>
 
                     <div class="main_form_col2">
-                        <label>Type de bien : </label>
-                        <select>
-                            <option>Maison</option>
-                            <option>Appartement</option>
+                        <label for="typeBien">Type de bien : </label>
+                        <select name="typeBien" id="typeBien">
+                            <option value="maison">Maison</option>
+                            <option value="appart">Appartement</option>
                         </select>
 
-                        <label>Nombre de pièces : </label>
-                        <input type="number" placeholder="2" min="0">
+                        <label for="nbrePieces">Nombre de pièces : </label>
+                        <input type="number" placeholder="2" min="0" name="nbrePieces" id="nbrePieces">
                     </div>
 
                     <div class="main_form_col3">
-                        <label>Prix max (€): </label>
-                        <input type="number" placeholder="100 000" min="0">
+                        <label for="prixMax">Prix max (€): </label>
+                        <input type="number" placeholder="100 000" min="0" id="prixMax" name="prixMax">
                     </div>
                     <div class="main_form_submit">
-                        <button type="submit">RECHERCHER !</button>
+                        <button type="submit" name="fastResearch">RECHERCHER !</button>
                     </div>
                 </form>
             </div>

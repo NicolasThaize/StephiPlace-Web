@@ -25,6 +25,11 @@ if(isset($_GET['p'])){
     $page = $_GET['p'];
 }
 
+if(isset($_GET['bienID'])){
+    $bienID = $_GET['bienID'];
+    $tabGoodInfo = recupInfosGoodFromGoodID(accesDB(),$bienID);
+}
+
 //Rendu du template
 
 $loader = new \Twig\Loader\FilesystemLoader(__DIR__.'/twig');
@@ -61,8 +66,12 @@ switch($page){
             echo $twig->render('research.twig',[
                 'status'=>$status,
                 'idsuer'=>$_SESSION["iduser"],              //Récupère le contenu de la session et l'envoie sur la page
+                'research'=>$_SESSION["research"]
                 ]);
-            } else {echo 'Vous n\'êtes pas connecté';}
+            } else {echo $twig->render('research.twig',[
+                'status'=>$status,              //Récupère le contenu de la session et l'envoie sur la page
+                'research'=>$_SESSION["research"]
+                ]);}
         break;
 
 
@@ -76,6 +85,16 @@ switch($page){
             } else {echo 'Vous n\'êtes pas connecté';}
         break;
 
+    case 'good':
+        if(isset($_GET['bienID'])){
+            echo $twig->render('good.twig',[
+                'status'=>$status,
+                'idsuer'=>$_SESSION["iduser"],              //Récupère le contenu de la session et l'envoie sur la page
+                'bienID'=>$bienID,
+                'tabGood'=>$tabGoodInfo
+                ]);
+            } else {echo "Bien inexistant";}
+        break;    
 
     case 'goods':
         if($status){

@@ -12,11 +12,11 @@
 {% endblock %}
 
 {% block content %}
-    <main>
+<main>
     <div class="main">
         <div class="main_up_part">
             <div class="main_up_form">
-                <form method="POST" action="#">
+                <form method="POST" action="php/research.php">
                     <div class="form">
                         <div class="dropper">
 
@@ -49,7 +49,7 @@
                             </div>
 
                             <div class="form_submit">
-                                <button type="submit">Rechercher</button>
+                                <button type="submit" name="research">Rechercher</button>
                             </div>
                         </div>
 
@@ -57,15 +57,15 @@
 
                             <div class="forms" id="form_type">
                                 <div class="form_type_row1 dropdown">
-                                    <label for="choixtype">Type de logement :</label>
-                                    <select name="choixtype" id="type">
+                                    <label for="typeBien">Type de logement :</label>
+                                    <select name="typeBien" id="type">
                                         <option value="maison">Maison</option>
                                         <option value="appartement">Appartement</option>
                                     </select>
                                 </div>
                                 <div class="form_type_row2 dropdown">
-                                    <label for="nbrepieces">Nombre de pièces :</label>
-                                    <input type="number" name="nbrepieces" placeholder="Un nombre de pièces ?">
+                                    <label for="nbrePieces">Nombre de pièces :</label>
+                                    <input type="number" name="nbrePieces" placeholder="Un nombre de pièces ?">
                                 </div>
                             </div>
 
@@ -82,8 +82,8 @@
 
                             <div class="forms" id="form_prix">
                                 <div class="form_prix_row1 dropdown">
-                                    <label for="prixmin">Prix minimum :</label>
-                                    <input type="number" name="prixmin" placeholder="Prix mini ?">
+                                    <label for="prixMin">Prix minimum :</label>
+                                    <input type="number" name="prixMin" placeholder="Prix mini ?">
                                 </div>
                                 <div class="form_prix_row2 dropdown">
                                     <label for="prixmax">Prix maximum :</label>
@@ -107,9 +107,37 @@
             </div>
         </div>
         <div class="main_down_part">
+        <div class="cards">
+            {% for bien in research %}
+            <a href="index.php?p=good&bienID={{ bien.id_bien }}" class="delLinkStyle">
+                <div class="main_card">
+                    <div class="card_up_part">
+                        <div class="card_img"></div>
+                    </div>
+                    <div class="card_down_part">
+                        <div class="card_title">
+                            <h3>{{ bien.titre }}</h3>
+                        </div>
+
+                        <div class="card_city">
+                            <p>{{ bien.ville }}({{ bien.code_postal }})</p>
+                        </div>
+
+                        <div class="card_desc">
+                            <p>{{ bien.description }}</p>
+                        </div>
+
+                        <div class="card_price">
+                            <p>{{ bien.prix }}€</p>
+                        </div>
+                    </div>
+                </div>
+            </a>    
+            {% endfor %}
 
         </div>
+        </div>
     </div>
-    </main>
+</main>
 
 {% endblock %}

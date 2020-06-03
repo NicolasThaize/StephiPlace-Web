@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block stylesheet %}
-    <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="css/good.css">
 {% endblock %}
 
 {% block content %}
@@ -13,7 +13,65 @@
         <div class="main">
             <div class="main_up_part">
                 <div class="main_up_box">
-                    <h1>{{ tabGood.id_bien }}{{ tabGood.titre }}</h1>
+                    <h1>{{ tabGood.titre }}</h1>
+                    <a href="php/favori.php?ID={{tabGood.id_bien}}" class="delLinkStyle" style="color: {{favColor}}"><i class="far fa-star"></i></a>
+                </div>
+            </div>
+            <div class="main_down_part">
+                <div class="main_downleft_part">
+                    <div class="left_up_part">
+                        <div class="img_bien">
+                            <img src="images/backgroundAcceuil.jpg" alt="image du bien">
+                        </div>
+                        <div class="prix_bien">
+                            <p>{{ tabGood.prix }}€</p>
+                        </div>
+                    </div>
+                    <div class="left_down_part">
+                        <div class="dependances_bien">
+                            <h3>Dépendance : non</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="main_downright_part">
+                    <div class="caracteristiques_bien">
+                        <div class="carac_1">
+                            <h3>Description du bien :</h3>
+                            <p>{{tabGood.description}}</p>
+                        </div>
+                        <div class="carac_2">
+                            <h3>Type du bien :</h3>
+                            <p>{{tabGood.type}}</p>
+                        </div>
+                        <div class="carac_3">
+                            <h3>Superficie du terrain :</h3>
+                            <p>{{tabGood.superficie}} m²</p>
+                        </div>
+                        <div class="carac_4">
+                            <h3>Surface habitable :</h3>
+                            <p>{{tabGood.surface_habitable}} m²</p>
+                        </div>
+                        <div class="carac_5">
+                            <h3>Nombre de pièces :</h3>
+                            <p>{{tabGood.nbr_piece}}</p>
+                        </div>
+                        <div class="carac_6">
+                            <h3>Nombre d'étages :</h3>
+                            <p>{{tabGood.etage}}</p>
+                        </div>
+                        <div class="carac_7">
+                            <h3>Ville / Code postal :</h3>
+                            <p>{{tabGood.ville}} / {{tabGood.code_postal}}</p>
+                        </div>
+                        <div class="carac_8">
+                            <h3>Date d'ajout du bien :</h3>
+                            <p>{{tabGood.date_ajout}}</p>
+                        </div>
+
+                    </div>
+                    <div class="id_bien">
+                        <h3>ID Bien : {{tabGood.id_bien}}</h3>
+                    </div>
                 </div>
             </div>
         </div>

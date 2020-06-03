@@ -23,6 +23,19 @@ function testMdp($dbh,$pseudo,$mdp){ // Renvoit true ou false
 	return password_verify($mdp,$mdpBDD);
 }
 
+function testMdpFromID($dbh,$iduser,$mdp){ // Renvoit true ou false
+    $rqt = "SELECT `mdp` FROM `utilisateurs` WHERE IDUSER = ?";
+	$stmt = $dbh->prepare($rqt); //prépare la requête
+	$stmt->execute([$iduser]); //remplace les "?"  dans la requête
+	$resultat = $dbh->query($rqt);
+	while ($line = $stmt->fetch(PDO::FETCH_ASSOC)) { //tant que le fetch renvoit qq chose
+		foreach ($line as $key => $val) { // print chaque ligne
+			$mdpBDD=$val;
+		}
+    }
+	return password_verify($mdp,$mdpBDD);
+}
+
 function recupIdFromPseudo($dbh,$pseudo){ // Renvoit l'id de l'utilisateur 
     $rqt = "SELECT `IDUSER` FROM `utilisateurs` WHERE pseudonyme = ?";
 	$stmt = $dbh->prepare($rqt); //prépare la requête
@@ -193,5 +206,22 @@ function recherche($dbh,$tabValeurs,$rqtComplete){
 	return $resultat;
 }
 
+function testFavoriFromUserID($dbh,$iduser)
+{
+	$rqt = "SELECT * FROM `favoris` WHERE id_user = ?";
+	$stmt = $dbh->prepare($rqt);
+	$stmt->execute([$iduser]);
+	$resultat = $stmt->fetch(PDO::FETCH_ASSOC);
+	return $resultat;
+}
+
+function testFavoriFromUserIdAndBienID($dbh,$iduser,$idbien)
+{
+	$rqt = "SELECT * FROM `favoris` WHERE id_user = ? AND id_bien = ?";
+	$stmt = $dbh->prepare($rqt);
+	$stmt->execute([$iduser,$idbien]);
+	$resultat = $stmt->fetch(PDO::FETCH_ASSOC);
+	return $resultat;
+}
 
 ?>

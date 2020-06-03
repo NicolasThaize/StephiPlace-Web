@@ -15,7 +15,14 @@ if(!(isset($status))){ //vérifie le status de la page si non défini le met sur
 if($_COOKIE["connected"] == 'TRUE' && isset($_SESSION["iduser"])){  // vérifie si l'utilisateur est connecté et possède un id d'utilisateur
     $tabUserInfo=recupInfosUserFromUserID(accesDB(),$_SESSION["iduser"]);
     $status = true;
+    if(empty(testFavoriFromUserID(accesDB(),$_SESSION['iduser']))){
+        $favoris = false;
+    } else { 
+        $favoris = true; 
+    }
 }
+
+
 
 
 
@@ -28,6 +35,10 @@ if(isset($_GET['p'])){
 if(isset($_GET['bienID'])){
     $bienID = $_GET['bienID'];
     $tabGoodInfo = recupInfosGoodFromGoodID(accesDB(),$bienID);
+}
+
+if(isset($_GET['mod'])){
+    $modified = $_GET['mod'];
 }
 
 //Rendu du template
@@ -85,15 +96,34 @@ switch($page){
             } else {echo 'Vous n\'êtes pas connecté';}
         break;
 
-    case 'good':
-        if(isset($_GET['bienID'])){
-            echo $twig->render('good.twig',[
+    case 'modify':
+        if($status){
+            echo $twig->render('modify.twig',[
                 'status'=>$status,
                 'idsuer'=>$_SESSION["iduser"],              //Récupère le contenu de la session et l'envoie sur la page
-                'bienID'=>$bienID,
-                'tabGood'=>$tabGoodInfo
+                'modif'=>$modified
                 ]);
+            } else {echo 'Vous n\'êtes pas connecté';}
+        break;
+
+    case 'good':
+        if(isset($_GET['bienID'])){
+            if($_GET['bienID'] > 0 && ctype_digit($_GET['bienID'])){ // Sécurise l'entrée du get 
+                if(isset($_SESSION['iduser'])){ // vérifie si l'utilisateur est authentifié
+                    if(empty(testFavoriFromUserIdAndBienID(accesDB(),$_SESSION['iduser'],$_GET['bienID']))){ // Si l'utilisateur a pour favori le bien sélectionné
+                        $favColor = "white";
+                        } else {$favColor = "gold";}
+                } else {$favColor = "white";}
+
+                
+                echo $twig->render('good.twig',[
+                    'status'=>$status,
+                    'bienID'=>$bienID,
+                    'tabGood'=>$tabGoodInfo,
+                    'favColor'=>$favColor
+                    ]);    
             } else {echo "Bien inexistant";}
+        } else {echo "Bien inexistant";}
         break;    
 
     case 'goods':

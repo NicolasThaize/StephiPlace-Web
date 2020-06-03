@@ -1,4 +1,6 @@
 <?php
+include('functions.php');
+
 if (isset($_POST['coSubmit']) && isset($_POST['coPseudo']) && isset($_POST['coMdp'])){
     
     if(ctype_alnum($_POST['coPseudo'])){
@@ -11,10 +13,6 @@ if (isset($_POST['coSubmit']) && isset($_POST['coPseudo']) && isset($_POST['coMd
 
 include('database.php');
 
-function testConnexion($pseudo,$mdp){
-    $dbh=accesDB();
-	return testMdp($dbh,$pseudo,$mdp);
-}
 
 if(testConnexion($pseudo,$mdp)){
     $dbh=accesDB();

@@ -1,0 +1,94 @@
+{% extends "layout.twig" %}
+
+{% block title %}
+<title>Ajouter un bien - StephiPlaceImmo</title>
+{% endblock %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="css/startselling.css">
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="main_content">
+        <div class="main_up_part">
+            <h1>Ajouter un bien :</h1>
+        </div>
+
+        <div class="main_down_part">
+            <div class="main_form">
+                <form method="post" action="php/startselling.php">
+
+                    <div class="form_1">
+                        <label for="titreBien">Titre du bien</label>
+                        <input type="text" name="titreBien" id="titreBien">
+
+                        <div class="form_textarea">
+                            <label for="descriptionBien">Description du bien (max 250)</label>
+                            <textarea name="descriptionBien" id="descriptionBien"></textarea>
+                        </div>
+
+                    </div>
+
+                    <div class="form_2">
+                        <div class="radio_form">
+                            <div>
+                                <input type="radio" id="maisonBien" name="typeBien" value="maison" checked>
+                                <label for="maisonBien">Maison</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" id="appartBien" name="typeBien" value="appartement">
+                                <label for="appartBien">Appartement</label>
+                            </div>
+                        </div>
+
+                        <label for="superficieBien">Superficie (m²)</label>
+                        <input type="number" name="superficieBien" id="superficieBien" min="9">
+
+                        <label for="surfaceBien">Surface habitable (m²)</label>
+                        <input type="number" name="surfaceBien" id="surfaceBien" min="9">
+
+                        <label for="nbrePiecesBien">Nombre de pièces</label>
+                        <input type="number" name="nbrePiecesBien" id="nbrePiecesBien" min="0">
+
+                        <label for="etagesBien">Nombre d'étages</label>
+                        <input type="number" name="etagesBien" id="etagesBien" min="0">
+
+                    </div>
+
+                    <div class="form_3">
+                        <label for="villeBien">Ville du bien</label>
+                        <input type="text" name="villeBien" id="villeBien">
+
+                        <label for="code_postalBien">Code postal du bien</label>
+                        <input type="number" name="code_postalBien" id="code_postalBien">
+
+                        <label for="adresseBien">Adresse du bien</label>
+                        <input type="text" name="adresseBien" id="adresseBien">
+
+                        <label for="prixBien">Prix du bien (en €)</label>
+                        <input type="number" name="prixBien" id="prixBien">
+                    </div>
+
+                    <div class="main_mid_part">
+                        <h2 class="dependance_Texte">Dépendance</h2>
+                        <p>Si pas de dépendance, laisser vide les champs si-dessous</p>
+                    </div>
+
+                    <div class="form_4">
+                        <label for="surfaceDep">Surface habitable de la dépendance (m²)</label>
+                        <input type="number" name="surfaceDep" id="surfaceDep" min="9">
+
+                        <label for="nbrePiecesDep">Nombre de pièces de la dépendance (m²)</label>
+                        <input type="number" name="nbrePiecesDep" id="nbrePiecesDep" min="0">
+                    </div>
+                    <div class="button_Form">
+                        <button type="submit" name="envoiAjoutBien">Ajouter mon bien</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

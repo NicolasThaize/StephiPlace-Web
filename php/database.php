@@ -224,4 +224,42 @@ function testFavoriFromUserIdAndBienID($dbh,$iduser,$idbien)
 	return $resultat;
 }
 
+function tabFavorisFromUserID($dbh,$iduser){
+	$rqt = "SELECT id_bien FROM favoris WHERE id_user = ? ";
+	$stmt = $dbh->prepare($rqt);
+	$stmt->execute([$iduser]);
+	$resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	$rqt2 = "SELECT * FROM biens WHERE id_bien IN (";
+
+	for ($i=0; $i < count($resultat); $i++) { 
+		$rqt2 .= " :".chr(97+$i)." ,";
+		$tabValeurs[chr(97+$i)] = $resultat[$i]['id_bien'];
+	}
+
+	$rqt2 = substr($rqt2, 0, -1);
+	$rqt2 .= ")";
+	$stmt2 = $dbh->prepare($rqt2);
+	$stmt2->execute($tabValeurs);
+	$resultat2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+	
+	return $resultat2;
+	
+}
+
+function recupGoodsFromUserID($dbh,$iduser){
+	$rqt = "SELECT * FROM `biens` WHERE id_proprietaire = ?";
+	$stmt = $dbh->prepare($rqt);
+	$stmt->execute([$iduser]);
+	$resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	return $resultat;
+}
+
+function pseudoUserFromUserID($dbh,$iduser){
+	$rqt = "SELECT pseudonyme FROM utilisateurs WHERE IDUSER = ?";
+	$stmt = $dbh->prepare($rqt);
+	$stmt->execute([$iduser]);
+	$resultat = $stmt->fetch(PDO::FETCH_ASSOC);
+	return $resultat['pseudonyme'];
+}
+
 ?>

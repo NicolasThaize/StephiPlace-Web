@@ -104,12 +104,14 @@
 
 .rightdown_upup_part
 {
-    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .rightdown_upup_part a
 {
     color: #e4004b;
+    padding-bottom: 10px;
     text-decoration: underline;
 }
 

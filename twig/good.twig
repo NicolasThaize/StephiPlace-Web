@@ -14,7 +14,7 @@
             <div class="main_up_part">
                 <div class="main_up_box">
                     <h1>{{ tabGood.titre }}</h1>
-                    <a href="php/favori.php?ID={{tabGood.id_bien}}" class="delLinkStyle" style="color: {{favColor}}"><i class="far fa-star"></i></a>
+                    <a href="php/favori.php?ID={{tabGood.id_bien}}" class="delLinkStyle" style="color: {{favColor}}"><i class="fas fa-star"></i></a>
                 </div>
             </div>
             <div class="main_down_part">
@@ -72,6 +72,9 @@
                     <div class="id_bien">
                         <h3>ID Bien : {{tabGood.id_bien}}</h3>
                     </div>
+                    {% if tabGood.id_proprietaire == idUser %}
+                    <a href="php/delBien.php?idbien={{tabGood.id_bien}}">Supprimer le bien</a>
+                    {% endif %}
                 </div>
             </div>
         </div>

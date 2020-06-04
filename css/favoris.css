@@ -1,0 +1,27 @@
+.main
+{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Partie haute de la page */
+
+.main_up_part
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.main_up_box
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    background-color: #e4004b;
+    font-size: 1.5em;
+    font-weight: bold;
+    height: 50px;
+    width: 100%;
+    box-shadow: 1px 8px 9px -10px rgba(0,0,0,1);
+}

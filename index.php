@@ -112,15 +112,18 @@ switch($page){
                 if(isset($_SESSION['iduser'])){ // vérifie si l'utilisateur est authentifié
                     if(empty(testFavoriFromUserIdAndBienID(accesDB(),$_SESSION['iduser'],$_GET['bienID']))){ // Si l'utilisateur a pour favori le bien sélectionné
                         $favColor = "white";
-                        } else {$favColor = "gold";}
-                } else {$favColor = "white";}
+                        
+                    } else {$favColor = "gold";}
+                    $iduserDEL = $_SESSION['iduser'];
+                } else {$favColor = "white"; $iduserDEL = -5;}
 
                 
                 echo $twig->render('good.twig',[
                     'status'=>$status,
                     'bienID'=>$bienID,
                     'tabGood'=>$tabGoodInfo,
-                    'favColor'=>$favColor
+                    'favColor'=>$favColor,
+                    'idUser'=> $iduserDEL
                     ]);    
             } else {echo "Bien inexistant";}
         } else {echo "Bien inexistant";}
@@ -128,14 +131,37 @@ switch($page){
 
     case 'goods':
         if($status){
+            $tabMygoods = recupGoodsFromUserID(accesDB(),$_SESSION['iduser']);
             echo $twig->render('goods.twig',[
                 'status'=>$status,
                 'idsuer'=>$_SESSION["iduser"],              //Récupère le contenu de la session et l'envoie sur la page
-                'tabUser'=>$tabUserInfo
+                'tabUser'=>$tabUserInfo,
+                'mesBiens'=>$tabMygoods
                 ]);
             } else {echo 'Vous n\'êtes pas connecté';}
         break;
 
+    case 'startselling':
+        if($status){
+            echo $twig->render('startselling.twig',[
+                'status'=>$status,
+                'idsuer'=>$_SESSION["iduser"],              //Récupère le contenu de la session et l'envoie sur la page
+                'tabUser'=>$tabUserInfo
+                ]);
+        } else {echo 'Vous n\'êtes pas connecté';}
+        break;
+
+    case 'fav':
+        if($status){
+            $tabFavoris = tabFavorisFromUserID(accesDB(),$_SESSION['iduser']);
+            echo $twig->render('fav.twig',[
+                'status'=>$status,
+                'idsuer'=>$_SESSION["iduser"],              //Récupère le contenu de la session et l'envoie sur la page
+                'tabUser'=>$tabUserInfo,
+                'favoris'=>$tabFavoris
+                ]);
+        } else {echo 'Vous n\'êtes pas connecté';}
+        break;
 
     default:
         echo '404 Error Not found';

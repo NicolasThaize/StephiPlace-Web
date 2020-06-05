@@ -16,7 +16,6 @@ c = conn.cursor()
 #Creation de la fenetre principale
 schedGraphics = tkinter 
 root = schedGraphics.Tk() 
-
 root.title("Stephi Place") 
 universal_height = 350
 
@@ -158,10 +157,6 @@ def rechercher():
                 print_records += str(record) + "\n"
 
 
-            #Display pseudo
-            proprietaire = Label(Fenetrebien,text=str(proprietaire_output),justify=LEFT)
-            proprietaire.grid(column=1,row=1)
-
             #Display data bien
             query_label = Label(Fenetrebien, text=print_records, justify=LEFT)
             query_label.grid(row=17, column = 1,columnspan=2,pady=(20,0))
@@ -211,12 +206,15 @@ def Edition():
         code_postal.insert(0,record[12])
         ville.insert(0,record[13])
 
+    print(proprietaire_output)
+    #Display pseudo
+    proprietaire = Label(Fenetrebien,text=str(proprietaire_output),justify=LEFT)
+    proprietaire.grid(column=1,row=1)
+    #Commit des changements
+    conn.commit()
 
-        #Commit des changements
-        conn.commit()
-
-        #Fermeture de la connexion
-        conn.close()
+    #Fermeture de la connexion
+    conn.close()
 
 #Fonction permettant d'enregister les valeurs des champs sur un bien existant
 def Sauvegarde():
@@ -364,6 +362,7 @@ def register():
             #Commit des changements
             conn.commit()
             MessageBox.showinfo("Bravo !","Bienvenue, vous êtes maintenant enregistré ! ")
+            register.destroy()
             #Fermeture de la connexion
             conn.close()
 
@@ -524,6 +523,7 @@ btn_bien.grid(column=2,row=0)
 
 txt_proprietaire = Label(Fenetrebien, text=" Propriétaire : ", justify=LEFT)
 txt_proprietaire.grid(column=0,row=1)
+
 
 txt_titre = Label(Fenetrebien, text=" Titre : ", justify=LEFT)
 titre = Entry(Fenetrebien)

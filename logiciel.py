@@ -31,6 +31,7 @@ Fenetrebien = ttk.Frame(nb,width = 300,height = universal_height)
 ##################################################################################
 
 #Déclaration variable pour  la rendre globale plus tard ( ne pas tenir compte )
+session = c.fetchone()
 query_label=Label(Fenetrebien)
 btn_destruction=Button(Fenetrebien)
 proprietaire_output = ''
@@ -76,6 +77,11 @@ def infosbien():
     #Petite sécurité
     if (v_titre=="" or v_type=="" or v_superficie=="" or v_surface_habitable=="" or v_nbr_piece=="" or v_prix=="" or v_date_ajout=="" or v_code_postal=="" or v_ville=="" or v_adresse==""):
         MessageBox.showinfo("Erreur !","Veuillez completer tous les champs")
+
+    #Si non authentifié
+    elif (session is None):
+            MessageBox.showinfo("Erreur !","Veuillez vous identifier")
+            
     else:
         #Connexion a la base 
         conn = mysql.connect(host="localhost",user="root", passwd="root",database="bddsite")
@@ -123,8 +129,14 @@ def rechercher():
     try:
         #Destruction du display précédent, permet d'éviter l'overwriting en cas de deuxieme recherche, et évite de créer un bouton juste pour effacer le display
         query_label.destroy()
+
+        #Si champ vide 
         if (v_id_bien==""):
             MessageBox.showinfo("Erreur !","Veuillez completer le champ")
+
+        #Si non identifié
+        elif (session is None):
+            MessageBox.showinfo("Erreur !","Veuillez vous identifier")
 
         else:
             
@@ -163,10 +175,10 @@ def rechercher():
     except(IndexError):
         MessageBox.showinfo("Erreur","Le bien n'existe pas, veuillez entrer un ID valide")
 
-
+#Fonction d'affichage des biens dans les barres entry
 def Edition():
     
-    
+
     global proprietaire_output,v_id_bien
 
     v_id_bien = id_bien.get()
@@ -180,7 +192,7 @@ def Edition():
     #Requete vers la base 
     c.execute("SELECT * FROM biens WHERE id_bien = " + v_id_bien)
     records = c.fetchall()
-    #print(records)     output console 
+    #print(records)     output console , ne pas prendre en commpte 
     proprietaire_output='' 
 
     #Fonction d'affichage des valeurs dans les champs entry pour édition
@@ -224,8 +236,78 @@ def Sauvegarde():
     v_adresse = adresse.get()
     v_id_bien = id_bien.get()
     
-    #Sécurité approximative 
-    try:
+    #Si champs vides
+    if (v_titre=="" or v_type=="" or v_superficie=="" or v_surface_habitable=="" or v_nbr_piece=="" or v_prix=="" or v_date_ajout=="" or v_code_postal=="" or v_ville=="" or v_adresse==""):
+        MessageBox.showinfo("Erreur !","Veuillez completer tous les champs")
+
+    #Si non authentifié
+    elif (session is None):
+            MessageBox.showinfo("Erreur !","Veuillez vous identifier")
+            
+    else:
+        #Sécurité approximative 
+        try:
+            #Connexion a la base 
+            conn = mysql.connect(host="localhost",user="root", passwd="root",database="bddsite")
+
+            #Creation du curseur
+            c = conn.cursor()
+
+            #Requete vers la base 
+            mysql_update = """UPDATE biens SET  
+            titre = %s,
+            description = %s, 
+            type = %s,
+            superficie = %s, 
+            surface_habitable = %s, 
+            nbr_piece = %s, 
+            prix = %s, 
+            date_ajout = %s, 
+            code_postal = %s, 
+            ville = %s, 
+            adresse = %s 
+            WHERE id_bien = %s"""
+            
+            variables_entry = (v_titre,v_description,v_type,v_superficie,v_surface_habitable,v_nbr_piece,v_prix,v_date_ajout,v_code_postal,v_ville,v_adresse,v_id_bien)
+
+            c.execute(mysql_update,variables_entry)
+            #Commit des changements
+            conn.commit()
+            #Fermeture de la connexion
+            conn.close()
+            MessageBox.showinfo("Réussite","Mise a jour réussie ! ")
+
+            #Vider les input
+            titre.delete(0,END)
+            description.delete(0,END)
+            type.delete(0,END)
+            superficie.delete(0,END)
+            surface_habitable.delete(0,END)
+            nbr_piece.delete(0,END)
+            prix.delete(0,END)
+            date_ajout.delete(0,END)
+            code_postal.delete(0,END)
+            ville.delete(0,END)
+            adresse.delete(0,END)
+        
+        except():
+            MessageBox.showinfo("Données invalides","Veuillez rentrer des données compatibles")
+
+
+#Fonction de supression par ID 
+def Suppression():
+    global btn_destruction
+    v_id_bien = id_bien.get()
+
+    if (v_id_bien==""):
+            MessageBox.showinfo("Erreur !","Veuillez completer le champ")
+
+    #Si non identifié
+    elif (session is None):
+        MessageBox.showinfo("Erreur !","Veuillez vous identifier")
+
+    else:
+    
         #Connexion a la base 
         conn = mysql.connect(host="localhost",user="root", passwd="root",database="bddsite")
 
@@ -233,67 +315,17 @@ def Sauvegarde():
         c = conn.cursor()
 
         #Requete vers la base 
-        mysql_update = """UPDATE biens SET  
-        titre = %s,
-        description = %s, 
-        type = %s,
-        superficie = %s, 
-        surface_habitable = %s, 
-        nbr_piece = %s, 
-        prix = %s, 
-        date_ajout = %s, 
-        code_postal = %s, 
-        ville = %s, 
-        adresse = %s 
-        WHERE id_bien = %s"""
+        c.execute("DELETE FROM biens WHERE id_bien = " + v_id_bien)
         
-        variables_entry = (v_titre,v_description,v_type,v_superficie,v_surface_habitable,v_nbr_piece,v_prix,v_date_ajout,v_code_postal,v_ville,v_adresse,v_id_bien)
+        #Destruction du display précédent, permet d'éviter l'overwriting en cas de deuxieme recherche, et évite de créer un bouton juste pour effacer le display
+        query_label.destroy()
 
-        c.execute(mysql_update,variables_entry)
         #Commit des changements
         conn.commit()
+
         #Fermeture de la connexion
         conn.close()
-        MessageBox.showinfo("Réussite","Mise a jour réussie ! ")
-
-        #Vider les input
-        titre.delete(0,END)
-        description.delete(0,END)
-        type.delete(0,END)
-        superficie.delete(0,END)
-        surface_habitable.delete(0,END)
-        nbr_piece.delete(0,END)
-        prix.delete(0,END)
-        date_ajout.delete(0,END)
-        code_postal.delete(0,END)
-        ville.delete(0,END)
-        adresse.delete(0,END)
-    
-    except():
-        MessageBox.showinfo("Données invalides","Veuillez rentrer des données compatibles")
-
-
-#Fonction de supression par ID 
-def Suppression():
-    global btn_destruction
-    v_id_bien = id_bien.get()
-    
-    MessageBox.showinfo("Réussite","Suppression du bien effectuée avec succès")
-    #Connexion a la base 
-    conn = mysql.connect(host="localhost",user="root", passwd="root",database="bddsite")
-
-    #Creation du curseur
-    c = conn.cursor()
-
-    #Requete vers la base 
-    c.execute("DELETE FROM biens WHERE id_bien = " + v_id_bien)
-    #Destruction du display précédent, permet d'éviter l'overwriting en cas de deuxieme recherche, et évite de créer un bouton juste pour effacer le display
-    query_label.destroy()
-
-    #Commit des changements
-    conn.commit()
-    #Fermeture de la connexion
-    conn.close()
+        MessageBox.showinfo("Réussite","Suppression du bien effectuée avec succès")
 
 #Fonction + fenetre  d'enregistrement
 def register():
@@ -422,6 +454,7 @@ def register():
 def login():
     #Fonction d'identification
     def save_login():
+        global session
         v_pseudo = pseudo.get()
         v_mdp = mdp.get()
 
@@ -438,11 +471,11 @@ def login():
             # Fetch one record and return result
             session = c.fetchone()
             
-            
             #Commit des changements
             conn.commit()
             if session:
                 MessageBox.showinfo("Bravo !","Bienvenue, vous êtes maintenant enregistré ! ")
+                login.destroy()
             else:
                 MessageBox.showinfo("Erreur !", "Identifiants invalides !")
             #Fermeture de la connexion

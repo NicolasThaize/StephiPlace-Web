@@ -230,7 +230,7 @@ function tabFavorisFromUserID($dbh,$iduser){
 	$stmt->execute([$iduser]);
 	$resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	$rqt2 = "SELECT * FROM biens WHERE id_bien IN (";
-
+	$tabValeurs = NULL;
 	for ($i=0; $i < count($resultat); $i++) { 
 		$rqt2 .= " :".chr(97+$i)." ,";
 		$tabValeurs[chr(97+$i)] = $resultat[$i]['id_bien'];

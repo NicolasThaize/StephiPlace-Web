@@ -91,16 +91,15 @@ if(testMdpFromID(accesDB(),$iduser,$_POST['coMdp'])){
         } else {header('location:../index.php?p=signup'); }
     }
     
-    if(isset($_POST['modCode Postal'])){
+    if(isset($_POST['modCode%20Postal'])){
         if(ctype_digit($_POST['coPseudo'])){
             $codePostal = $_POST['coPseudo'];
             modifsUserCodePostal(accesDB(),$iduser,$codePostal);
         } else {header('location:../index.php?p=signup'); }
     }
     
-    if(isset($_POST['modMot de passe'])){
-        $mdp = $_POST['coPseudo'];
-        $mdp=password_hash($mdp, PASSWORD_BCRYPT);
+    if(isset($_POST['modMot%20de%20passe'])){
+        $mdp=password_hash($_POST['coPseudo'], PASSWORD_BCRYPT);
         modifsUserMdp(accesDB(),$iduser,$mdp);
     }
     header('location:../index.php?p=account');
